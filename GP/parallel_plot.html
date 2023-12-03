@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-0845b8a312a6e2ff4ab4297b365a9520"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "TOTAL TAX RATE", "type": "nominal"}, "detail": {"field": "key", "type": "nominal"}, "opacity": {"value": 0.5}, "x": {"field": "key", "type": "nominal"}, "y": {"field": "value", "type": "quantitative"}}, "transform": [{"fold": ["Numerical Level Of Corruption", "Ladder score", "Freedom to make life choices", "Numerical Level Of Social Support in Society"], "as": ["key", "value"]}], "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-0845b8a312a6e2ff4ab4297b365a9520": [{"Numerical Level Of Corruption": 3, "Ladder score": 7, "Freedom to make life choices": 70, "Numerical Level Of Social Support in Society": 8, "TOTAL TAX RATE": 20}, {"Numerical Level Of Corruption": 2, "Ladder score": 8, "Freedom to make life choices": 80, "Numerical Level Of Social Support in Society": 7, "TOTAL TAX RATE": 15}, {"Numerical Level Of Corruption": 4, "Ladder score": 6, "Freedom to make life choices": 60, "Numerical Level Of Social Support in Society": 9, "TOTAL TAX RATE": 25}, {"Numerical Level Of Corruption": 1, "Ladder score": 9, "Freedom to make life choices": 90, "Numerical Level Of Social Support in Society": 6, "TOTAL TAX RATE": 18}, {"Numerical Level Of Corruption": 5, "Ladder score": 5, "Freedom to make life choices": 50, "Numerical Level Of Social Support in Society": 10, "TOTAL TAX RATE": 30}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
